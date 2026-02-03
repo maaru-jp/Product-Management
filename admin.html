@@ -1,19 +1,71 @@
+
 <!DOCTYPE html>
 <html lang="zh-TW">
-<head><meta charset="UTF-8"><title>後台</title></head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OMO ADMIN｜商品管理</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body{margin:0;font-family:'Noto Sans TC',system-ui;background:#FFF3F3}
+    .app{display:grid;grid-template-columns:240px 1fr;min-height:100vh}
+    aside{background:#0F0F12;color:#fff;padding:18px}
+    aside h2{margin:0 0 16px}
+    aside a{display:block;color:#eee;padding:10px;border-radius:10px;text-decoration:none}
+    aside a.active,aside a:hover{background:#1B1B22}
+    main{padding:20px}
+    h1{margin-top:0}
+    .toolbar{display:flex;gap:12px;background:#fff;padding:14px;border-radius:14px}
+    button{padding:10px 14px;border-radius:12px;border:1px solid #eee;cursor:pointer}
+    .primary{background:#FF7A9E;color:#fff;border:none}
+    table{width:100%;margin-top:14px;background:#fff;border-radius:14px;border-collapse:collapse}
+    th,td{padding:12px;border-bottom:1px solid #eee;text-align:left}
+    th{font-size:12px;color:#777}
+    tr:last-child td{border-bottom:none}
+    img{width:44px;height:44px;border-radius:8px;object-fit:cover}
+  </style>
+</head>
 <body>
-<h1>商品後台</h1>
-<table border="1" cellpadding="6">
-<tr><th>ID</th><th>名稱</th><th>分類</th><th>價格</th><th>狀態</th></tr>
-</table>
-<script src="products.js"></script>
-<script>
-const t=document.querySelector("table");
-products.forEach(p=>{
-  const r=document.createElement("tr");
-  r.innerHTML=`<td>${p.id}</td><td>${p.name}</td><td>${p.category}</td><td>${p.price}</td><td>${p.active?"上架":"下架"}</td>`;
-  t.appendChild(r);
-});
-</script>
+<div class="app">
+  <aside>
+    <h2>OMO ADMIN<br><small>MAARU 日本萌物</small></h2>
+    <a href="#">總覽報表</a>
+    <a href="#">訂單管理</a>
+    <a class="active" href="#">商品管理</a>
+    <a href="#">首頁排版</a>
+    <a href="#">採購統計</a>
+    <a href="#">網站設定</a>
+  </aside>
+  <main>
+    <h1>商品管理</h1>
+    <div class="toolbar">
+      <button class="primary">＋ 新增商品</button>
+      <button>匯出 CSV</button>
+      <input style="flex:1;padding:10px;border-radius:10px;border:1px solid #eee" placeholder="搜尋商品名稱、分類、品牌…" />
+      <button>搜尋</button>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>編號</th><th>圖片</th><th>名稱</th><th>售價</th><th>利潤</th><th>原價(KRW)</th><th>成本</th><th>庫存</th><th>狀態</th><th>操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>P1769865061826276</td>
+          <td><img src="https://res.cloudinary.com/demo/image/upload/sample.jpg"></td>
+          <td>手機吊鏈</td>
+          <td>499</td>
+          <td style="color:green;font-weight:700">499</td>
+          <td>₩2000</td>
+          <td>0</td>
+          <td>1</td>
+          <td>上架中</td>
+          <td><button>編輯</button> <button style="color:red">刪除</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+</div>
 </body>
 </html>
