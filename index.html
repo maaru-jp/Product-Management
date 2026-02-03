@@ -1,121 +1,14 @@
-
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>MAARU ADMIN｜商品管理</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Noto+Sans+TC:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --bg:#F5F7FB;
-      --panel:#FFFFFF;
-      --ink:#0F172A;
-      --muted:#64748B;
-      --line:#E5E7EB;
-      --accent:#2DD4BF;      /* mint */
-      --accent-weak:#E6FFFA;
-      --warn:#F97316;
-      --danger:#EF4444;
-      --sidebar:#0B1220;     /* deep ink */
-    }
-    *{box-sizing:border-box}
-    body{margin:0;font-family:Inter,'Noto Sans TC',system-ui;color:var(--ink);background:var(--bg)}
-    a{text-decoration:none;color:inherit}
-    .app{display:grid;grid-template-columns:260px 1fr;min-height:100vh}
-
-    /* Sidebar */
-    aside{background:linear-gradient(180deg,#0B1220,#0B1220 60%,#0E1628);color:#E5E7EB;padding:20px}
-    .brand{font-weight:800;letter-spacing:.4px}
-    .brand small{display:block;color:#94A3B8;margin-top:4px}
-    nav{margin-top:20px}
-    nav a{display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:12px;color:#CBD5E1;margin-bottom:6px}
-    nav a.active,nav a:hover{background:#111B33;color:#E5E7EB}
-    .logout{margin-top:auto}
-    .logout a{display:block;margin-top:24px;padding:12px 14px;border-radius:12px;background:#111B33}
-
-    /* Main */
-    main{padding:24px}
-    .topbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
-    .topbar h1{margin:0;font-size:22px}
-    .topbar .link{color:var(--muted)}
-
-    .toolbar{display:flex;gap:12px;align-items:center;background:var(--panel);padding:14px;border-radius:16px;border:1px solid var(--line)}
-    .btn{border:1px solid var(--line);background:#fff;padding:10px 14px;border-radius:12px;font-weight:600;cursor:pointer}
-    .btn.primary{background:var(--accent);border-color:transparent;color:#063A35}
-    .btn.ghost{background:#fff}
-    .search{flex:1;display:flex;gap:8px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:10px 12px;color:var(--muted)}
-    .search input{border:none;outline:none;flex:1}
-
-    .card{margin-top:16px;background:var(--panel);border-radius:16px;border:1px solid var(--line)}
-    table{width:100%;border-collapse:separate;border-spacing:0}
-    thead th{font-size:12px;color:var(--muted);text-align:left;padding:12px 14px;border-bottom:1px solid var(--line)}
-    tbody td{padding:14px;border-bottom:1px solid var(--line);vertical-align:middle}
-    tbody tr:last-child td{border-bottom:none}
-    .thumb{width:44px;height:44px;border-radius:10px;object-fit:cover;border:1px solid var(--line)}
-    .price{font-weight:700}
-    .profit{color:#059669;font-weight:700}
-    .chip{padding:6px 10px;border-radius:999px;font-size:12px;background:var(--accent-weak);color:#065F46}
-    .actions{display:flex;gap:8px}
-
-    @media(max-width:900px){
-      .app{grid-template-columns:1fr}
-      aside{display:none}
-    }
-  </style>
+<meta charset="UTF-8">
+<title>MAARU 日本萌物購</title>
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<div class="app">
-  <aside>
-    <div class="brand">MAARU ADMIN<small>MAARU 日本萌物GO</small></div>
-    <nav>
-      <a href="#">總覽報表</a>
-      <a href="#">訂單管理</a>
-      <a class="active" href="#">商品管理</a>
-      <a href="#">首頁排版</a>
-      <a href="#">採購統計</a>
-      <a href="#">網站設定</a>
-    </nav>
-    <div class="logout"><a href="#">登出</a></div>
-  </aside>
-
-  <main>
-    <div class="topbar">
-      <h1>商品管理</h1>
-      <a class="link" href="index.html" target="_blank">前往官網 ↗</a>
-    </div>
-
-    <section class="toolbar">
-      <button class="btn primary">＋ 新增商品</button>
-      <button class="btn ghost">匯出 CSV</button>
-      <div class="search">🔍 <input placeholder="搜尋商品名稱、分類、品牌…" /></div>
-      <button class="btn ghost">搜尋</button>
-    </section>
-
-    <section class="card">
-      <table>
-        <thead>
-          <tr>
-            <th>編號</th><th>圖片</th><th>名稱</th><th>售價</th><th>利潤</th><th>原價(KRW)</th><th>成本</th><th>庫存</th><th>狀態</th><th>操作</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>P1769865061826276</td>
-            <td><img class="thumb" src="https://res.cloudinary.com/demo/image/upload/sample.jpg"></td>
-            <td>手機吊鏈</td>
-            <td class="price">499</td>
-            <td class="profit">499</td>
-            <td>₩2000</td>
-            <td>0</td>
-            <td>1</td>
-            <td><span class="chip">上架中</span></td>
-            <td class="actions"><button class="btn ghost">編輯</button><button class="btn ghost" style="color:var(--danger)">刪除</button></td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-  </main>
-</div>
+<h1>MAARU 日本萌物購</h1>
+<a href="cart.html">🛒 購物車</a>
+<div id="product-list"></div>
+<script type="module" src="js/products.js"></script>
 </body>
 </html>
