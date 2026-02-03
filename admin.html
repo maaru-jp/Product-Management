@@ -1,22 +1,18 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
-<head>
-  <meta charset="UTF-8">
-  <title>商品後台</title>
-</head>
+<head><meta charset="UTF-8"><title>後台</title></head>
 <body>
-<h1>商品後台管理</h1>
-<table border="1" cellpadding="8">
-  <tr><th>ID</th><th>名稱</th><th>價格</th><th>狀態</th></tr>
+<h1>商品後台</h1>
+<table border="1" cellpadding="6">
+<tr><th>ID</th><th>名稱</th><th>分類</th><th>價格</th><th>狀態</th></tr>
 </table>
-
 <script src="products.js"></script>
 <script>
-const table = document.querySelector("table");
-products.forEach(p => {
-  const row = document.createElement("tr");
-  row.innerHTML = `<td>${p.id}</td><td>${p.name}</td><td>${p.price}</td><td>${p.active ? "上架" : "下架"}</td>`;
-  table.appendChild(row);
+const t=document.querySelector("table");
+products.forEach(p=>{
+  const r=document.createElement("tr");
+  r.innerHTML=`<td>${p.id}</td><td>${p.name}</td><td>${p.category}</td><td>${p.price}</td><td>${p.active?"上架":"下架"}</td>`;
+  t.appendChild(r);
 });
 </script>
 </body>
