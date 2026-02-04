@@ -1,6 +1,1 @@
-
-function checkout(){
-  const cart = JSON.parse(localStorage.getItem("cart")||"[]");
-  const text = cart.join(",");
-  location.href = "https://line.me/R/oaMessage/@YOUR_LINE_ID/?訂單:"+text;
-}
+const PRODUCTS=JSON.parse(localStorage.getItem("products"))||[];let cart=JSON.parse(localStorage.getItem("cart"))||[];function updateCartCount(){const e=document.getElementById("cart-count");if(e)e.textContent=cart.length;}function renderProducts(){const e=document.getElementById("product-list");if(!e)return;PRODUCTS.filter(p=>p.status==="active").forEach(p=>{const d=document.createElement("div");d.className="card";d.innerHTML=`<img src="${p.images[0]||''}"><h3>${p.name}</h3><p>NT$ ${p.price}</p><button onclick='addToCart(${JSON.stringify(p)})'>加入購物車</button>`;e.appendChild(d);});}function addToCart(p){cart.push(p);localStorage.setItem("cart",JSON.stringify(cart));updateCartCount();alert("已加入購物車");}function renderCart(){const e=document.getElementById("cart-items");if(!e)return;e.innerHTML="";cart.forEach(p=>{e.innerHTML+=`<p>${p.name} - NT$ ${p.price}</p>`;});}function checkout(){let t="【我要下單】\n";cart.forEach((p,i)=>{t+=`${i+1}. ${p.name}\n`;});const n=document.getElementById("note").value;if(n)t+=`備註：${n}`;location.href=`https://line.me/R/oaMessage/@你的LINE官方帳號ID/?text=${encodeURIComponent(t)}`;}renderProducts();renderCart();updateCartCount();
