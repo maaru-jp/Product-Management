@@ -1,0 +1,23 @@
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<title>購物車</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<header><strong>🛒 我的購物車</strong></header>
+<div class="container">
+  <p>商品 A ×2</p>
+  <p>商品 B ×1</p>
+  <button class="btn btn-primary" onclick="goLine()">結帳 → LINE 下單</button>
+</div>
+<script>
+function goLine(){
+  const msg = encodeURIComponent("您好，我要下單預購商品：\n商品A x2\n商品B x1");
+  window.location.href = "https://line.me/R/oaMessage/@yourlineid/?" + msg;
+}
+</script>
+</body>
+</html>

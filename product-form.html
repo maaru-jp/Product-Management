@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<title>新增商品</title>
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+.tabs{display:flex;border-bottom:1px solid #ddd}
+.tab{padding:8px 12px;cursor:pointer}
+.tab.active{font-weight:bold;border-bottom:2px solid #ff7aa2}
+.section{display:none}
+.section.active{display:block}
+</style>
+</head>
+<body>
+<div class="container">
+  <h2>新增 / 編輯商品</h2>
+  <div class="tabs">
+    <div class="tab active" onclick="show('basic',this)">基本</div>
+    <div class="tab" onclick="show('cat',this)">分類</div>
+    <div class="tab" onclick="show('img',this)">圖片</div>
+  </div>
+  <div id="basic" class="section active">
+    <input placeholder="商品名稱"><br><br>
+    <input placeholder="價格">
+  </div>
+  <div id="cat" class="section">
+    <select><option>三麗鷗</option></select>
+  </div>
+  <div id="img" class="section">
+    <input placeholder="Cloudinary URL">
+  </div>
+  <br>
+  <button class="btn btn-primary">儲存</button>
+</div>
+<script>
+function show(id,el){
+ document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+ document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+ document.getElementById(id).classList.add('active');
+ el.classList.add('active');
+}
+</script>
+</body>
+</html>
