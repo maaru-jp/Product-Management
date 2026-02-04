@@ -7,29 +7,28 @@
 <link rel="stylesheet" href="../assets/style.css">
 </head>
 <body>
-<header>
-  <strong>MAARU 日本萌物購</strong>
-  <span style="float:right">🛒 <a href="cart.html">購物車</a></span>
-</header>
+<header><strong>MAARU 日本萌物購</strong> <a href="cart.html">🛒 購物車</a></header>
 <div class="container">
-  <h2>預購商品</h2>
-  <div class="grid">
-    <div class="card">
-      <div class="badge">預購</div>
-      <img src="https://via.placeholder.com/300" width="100%">
-      <h4>商品 A</h4>
-      <p>$690</p>
-      <button class="btn btn-primary">加入購物車</button>
-    </div>
-    <div class="card">
-      <div class="badge">預購</div>
-      <img src="https://via.placeholder.com/300" width="100%">
-      <h4>商品 B</h4>
-      <p>$399</p>
-      <button class="btn btn-primary">加入購物車</button>
-    </div>
-  </div>
+  <div id="productGrid" class="grid"></div>
 </div>
-<div class="footer">© MAARU</div>
+<script>
+fetch('../data/products.json')
+  .then(r=>r.json())
+  .then(data=>{
+    const grid=document.getElementById('productGrid');
+    data.forEach(p=>{
+      const d=document.createElement('div');
+      d.className='card';
+      d.innerHTML=`
+        <span class="badge">${p.status}</span>
+        <img src="${p.images[0]}" width="100%">
+        <h4>${p.name}</h4>
+        <p>$${p.price}</p>
+        <button class="btn">加入購物車</button>
+      `;
+      grid.appendChild(d);
+    });
+  });
+</script>
 </body>
 </html>
