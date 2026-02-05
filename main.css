@@ -1,1 +1,0 @@
-body{font-family:sans-serif;padding:20px;}header{display:flex;justify-content:space-between;} .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px;} .card{border:1px solid #ddd;padding:10px;} .card img{width:100%;}
