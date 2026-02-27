@@ -93,8 +93,7 @@ function formatTWDFromJPY(jpy, rate) {
   return "NT$" + Math.round(j * r).toLocaleString("zh-TW");
 }
 
-const API_URL =
-  "https://script.googleusercontent.com/macros/echo?user_content_key=AY5xjrTS-qEphaiBZpDtZQiI4E_L4Ge4iew16KNpZjrnxlTW9Un0pCjTYDgyjxahCWPMth1rKbw4LC2adRlvAfht8Yjg7lZHaSNf2S-SriWDDtPkvZ0ZAn44OhpAap08hwkyQnBZgk4So2daHtOKP07hH3WXCLBCTE0KweDPxOqKTj3iuBwAcZ3A6a2yB3lhKShH_c4yHGiNFo8kDU6geRbf5a0XtAG5j6s2v3vrQw-ebi9metYny89Q59EvXqqNicsMMaWcLpxHBU26yHqiKu9XQ0GZLvMhgA&lib=MCN1sfGqsjw8Wsi0FJVsTJbQ42JGSsI5e";
+const API_URL ="https://script.google.com/macros/s/AKfycbyyFnwQVNVamiWRD23U4TOIKnR_iHqfO3ObFmFl_lfqepR8tvFgvWvm5YBqxuFWZiaBfw/exec";
 
 function normalizeItem(row, index) {
   if (!row || typeof row !== "object") return null;
